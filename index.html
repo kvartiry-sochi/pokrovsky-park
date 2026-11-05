@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Апартаменты «Покровский парк» — Сочи</title>
+<meta name="description" content="Тихий закрытый апартаментный комплекс в центре Сочи. 5 минут до моря, собственный дендро-парк, уютные квартиры от 2000 ₽ в сутки.">
+<style>
+:root{
+  --wine:#722f37; --wine-dark:#4e1d24; --powder:#f4e1d2; --cream:#fff9f5;
+  --gold:#d4af37; --gold-dark:#b8932a; --text:#3a2326; --muted:#7d6468;
+  --radius:18px; --shadow:0 10px 30px rgba(114,47,55,.15);
+  --serif:Georgia,"Times New Roman",serif; --sans:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;font-size:17px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:normal;line-height:1.2;color:var(--wine)}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---------- HEADER ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,249,245,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.35rem;color:var(--wine);cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo span{color:var(--gold)}
+.menu{display:flex;gap:6px;align-items:center;list-style:none}
+.menu button{background:none;border:none;font:inherit;font-size:.98rem;color:var(--text);padding:9px 16px;border-radius:30px;cursor:pointer;transition:.25s}
+.menu button:hover{color:var(--wine);background:var(--powder)}
+.menu button.active{background:var(--wine);color:#fff}
+.nav-cta{background:var(--gold);color:var(--wine-dark)!important;font-weight:600}
+.burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;position:relative}
+.burger i,.burger i::before,.burger i::after{position:absolute;left:9px;width:24px;height:2px;background:var(--wine);content:"";transition:.3s}
+.burger i{top:20px}.burger i::before{top:-7px;left:0}.burger i::after{top:7px;left:0}
+.burger.open i{background:transparent}.burger.open i::before{transform:translateY(7px) rotate(45deg)}.burger.open i::after{transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- PAGES ---------- */
+main{padding-top:70px;min-height:100vh}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- COMMON ---------- */
+section{padding:80px 0}
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-head .eyebrow{color:var(--gold-dark);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-top:8px}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;color:var(--gold)}
+.divider::before,.divider::after{content:"";width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+.btn{display:inline-block;border:none;cursor:pointer;font:inherit;font-weight:600;text-decoration:none;padding:14px 30px;border-radius:40px;transition:.3s;letter-spacing:.02em}
+.btn-gold{background:var(--gold);color:var(--wine-dark);box-shadow:0 6px 18px rgba(212,175,55,.4)}
+.btn-gold:hover{background:var(--gold-dark);color:#fff;transform:translateY(-2px)}
+.btn-wine{background:var(--wine);color:#fff}
+.btn-wine:hover{background:var(--wine-dark);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--wine);color:var(--wine);padding:12px 28px}
+.btn-outline:hover{background:var(--wine);color:#fff}
+.center{text-align:center}
+.bg-powder{background:var(--powder)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:calc(100vh - 70px);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:60px 22px;
+  background:linear-gradient(135deg,#722f37 0%,#a14a52 45%,#d9906f 100%);background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,12,18,.55),rgba(78,29,36,.65))}
+.hero-inner{position:relative;max-width:820px}
+.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,4.1rem);text-shadow:0 3px 24px rgba(0,0,0,.4)}
+.hero p{margin:22px auto 34px;font-size:clamp(1.05rem,2vw,1.3rem);max-width:620px;opacity:.95}
+.hero .hearts{color:var(--gold);letter-spacing:.5em;font-size:1.1rem;margin-bottom:18px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .btn-outline{border-color:#fff;color:#fff}
+.hero .btn-outline:hover{background:#fff;color:var(--wine)}
+.hero-note{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.78rem;opacity:.6}
+
+/* ---------- COMPLEX ---------- */
+.two-col{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}
+.two-col h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:18px}
+.two-col p{margin-bottom:16px;color:#4d3438}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.fact{background:#fff;border-radius:14px;padding:16px 10px;text-align:center;box-shadow:var(--shadow);border-top:3px solid var(--gold)}
+.fact b{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--wine)}
+.fact small{color:var(--muted);font-size:.85rem}
+
+/* media placeholder */
+.ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;
+  min-height:220px;border-radius:var(--radius);border:2px dashed var(--gold);color:var(--wine);overflow:hidden;
+  background:repeating-linear-gradient(45deg,rgba(244,225,210,.7) 0 14px,rgba(255,249,245,.9) 14px 28px)}
+.ph svg{width:46px;height:46px;stroke:var(--wine);fill:none;stroke-width:1.5}
+.ph strong{font-family:var(--serif);font-weight:normal;font-size:1.05rem}
+.ph small{color:var(--muted);font-size:.82rem;max-width:260px}
+.ph.big{min-height:440px}
+.ph.video::after{content:"▶";position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.media-filled{width:100%;height:100%;min-height:220px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+.media-filled.big{min-height:440px}
+
+/* ---------- FEATURES ---------- */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.feature{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);transition:.3s;position:relative}
+.feature:hover{transform:translateY(-6px)}
+.feature .ico{font-size:2rem;margin-bottom:10px}
+.feature h3{font-size:1.25rem;margin-bottom:8px}
+.feature p{color:var(--muted);font-size:.97rem}
+
+/* ---------- ROOM CARDS (home) ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.3s;cursor:pointer}
+.card:hover{transform:translateY(-6px)}
+.card .ph,.card .media-filled{border-radius:0;border:none;border-bottom:2px dashed var(--gold);min-height:210px;box-shadow:none}
+.card-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:1.3rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--powder);color:var(--wine);font-size:.82rem;padding:4px 12px;border-radius:20px}
+.price{color:var(--gold-dark);font-weight:700;font-size:1.05rem;margin-top:auto}
+.card .btn{margin-top:6px;text-align:center}
+
+/* ---------- ROOMS PAGE ---------- */
+.page-title{background:linear-gradient(135deg,var(--wine),var(--wine-dark));color:#fff;text-align:center;padding:70px 22px 60px}
+.page-title h1{color:#fff;font-size:clamp(2rem,5vw,3.2rem)}
+.page-title p{opacity:.85;margin-top:12px}
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.chip{background:#fff;border:1px solid var(--gold);color:var(--wine);padding:9px 22px;border-radius:30px;cursor:pointer;font:inherit;transition:.25s}
+.chip:hover,.chip.active{background:var(--wine);color:#fff;border-color:var(--wine)}
+.room-detail{background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:40px;margin-bottom:46px;scroll-margin-top:90px;border-left:6px solid var(--gold)}
+.room-detail.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,100%{box-shadow:var(--shadow)}30%{box-shadow:0 0 0 5px rgba(212,175,55,.6),var(--shadow)}}
+.room-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.room-top h2{font-size:clamp(1.6rem,3.4vw,2.2rem)}
+.room-top .sub{color:var(--muted);margin-top:6px}
+.room-price{text-align:right}
+.room-price b{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--gold-dark)}
+.room-price small{color:var(--muted)}
+.room-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;margin-top:30px}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0}
+.spec{background:var(--cream);border-radius:12px;padding:12px 14px;border:1px solid var(--powder)}
+.spec small{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.spec b{font-weight:600;color:var(--wine)}
+.amen{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:14px 0 22px}
+.amen li{padding-left:24px;position:relative;font-size:.95rem}
+.amen li::before{content:"♥";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:2px}
+.media-zone h4{font-size:1.1rem;margin-bottom:12px}
+.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.media-grid .span2{grid-column:span 2}
+.media-grid .ph{min-height:170px}
+.media-grid .span2.ph{min-height:230px}
+
+/* ---------- GALLERY ---------- */
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.gal-grid .wide{grid-column:span 2}
+.gal-grid .ph{min-height:240px}
+.gal-title{font-size:1.6rem;margin:46px 0 20px;display:flex;align-items:center;gap:12px}
+.gal-title::before{content:"♥";color:var(--gold);font-size:1.1rem}
+
+/* ---------- CONTACTS ---------- */
+.contacts-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:44px}
+.contact-box{background:#fff;border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.contact-box h3{font-size:1.5rem;margin-bottom:16px}
+.phone{font-family:var(--serif);font-size:1.8rem;color:var(--wine);text-decoration:none;display:block;margin:6px 0 4px}
+.messengers{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.messengers a{padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.95rem;color:#fff}
+.m-tg{background:#2a9bd8}.m-wa{background:#2fb457}.m-max{background:#6a4cff}
+.info-list{list-style:none;margin-top:14px}
+.info-list li{padding:8px 0;border-bottom:1px solid var(--powder);display:flex;gap:10px}
+.info-list li span:first-child{color:var(--gold)}
+form label{display:block;font-size:.88rem;color:var(--muted);margin:14px 0 5px}
+form input,form textarea{width:100%;font:inherit;padding:13px 16px;border:1.5px solid var(--powder);border-radius:12px;background:var(--cream);color:var(--text);transition:.2s}
+form input:focus,form textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.2)}
+form textarea{min-height:110px;resize:vertical}
+form .err{color:#b3261e;font-size:.82rem;min-height:1em}
+form .btn{margin-top:18px;width:100%}
+.map{margin-top:34px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:3px solid #fff}
+.map iframe{width:100%;height:340px;border:0;display:block}
+
+.card-addr{color:var(--muted);font-size:.9rem}
+.room-grid>*,.two-col>*,.contacts-grid>*,.media-grid>*,.media-zone{min-width:0;max-width:100%}
+.track{min-width:0;max-width:100%}
+.carousel{position:relative}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:8px}
+.slide{flex:0 0 82%;scroll-snap-align:start}
+.slide .ph,.slide .media-filled{height:260px;min-height:260px;width:100%}
+.car-btn{position:absolute;top:50%;transform:translateY(-60%);z-index:2;width:42px;height:42px;border-radius:50%;border:none;background:rgba(114,47,55,.92);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.car-btn:hover{background:var(--gold);color:var(--wine-dark)}
+.car-btn.prev{left:8px}.car-btn.next{right:8px}
+form .btn.btn-max{background:#6a4cff;color:#fff;margin-top:10px}
+form .btn.btn-max:hover{background:#5238d6}
+.form-status{margin-top:12px;font-size:.9rem;color:var(--wine);min-height:1.2em}
+
+/* ---------- CTA + FOOTER ---------- */
+.cta{background:linear-gradient(135deg,var(--wine),var(--wine-dark));color:#fff;text-align:center;border-radius:28px;padding:56px 26px}
+.cta h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:12px}
+.cta p{opacity:.9;margin-bottom:26px}
+footer{background:var(--wine-dark);color:#e9cfc4;text-align:center;padding:40px 22px;font-size:.92rem}
+footer .f-logo{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:8px}
+footer .f-logo span{color:var(--gold)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .burger{display:block}
+  .menu{position:absolute;top:70px;left:0;right:0;background:var(--cream);flex-direction:column;padding:14px 22px 22px;gap:6px;border-bottom:1px solid var(--gold);display:none}
+  .menu.open{display:flex;animation:fadeIn .3s}
+  .menu li{width:100%}.menu button{width:100%;text-align:left}
+  .two-col,.room-grid,.contacts-grid{grid-template-columns:minmax(0,1fr)}
+  .room-detail{padding:26px 20px}
+  .room-price{text-align:left}
+  section{padding:56px 0}
+  .gal-grid .wide{grid-column:auto}
+}
+@media(max-width:520px){
+  .facts{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .amen{grid-template-columns:1fr}
+  .specs{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" data-go="home" href="#home">♥ Покровский <span>парк</span></a>
+    <button class="burger" id="burger" aria-label="Меню"><i></i></button>
+    <ul class="menu" id="menu">
+      <li><button data-go="home">Главная</button></li>
+      <li><button data-go="rooms">Наши номера</button></li>
+      <li><button data-go="gallery">Галерея</button></li>
+      <li><button data-go="contacts">Контакты</button></li>
+      <li><button class="nav-cta" data-go="contacts">Забронировать</button></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= ГЛАВНАЯ ================= -->
+<div class="page active" id="page-home">
+
+  <div class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hearts">♥ ♥ ♥</div>
+      <h1>Тишина, море и ваша история в сердце Сочи</h1>
+      <p>Закрытый апартаментный комплекс «Покровский парк» — 5 минут пешком до моря, собственный дендро-парк и квартиры, в которых хочется остаться подольше.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gold" data-scroll="complex">Узнать о комплексе</button>
+        <button class="btn btn-outline" data-go="rooms">Смотреть номера</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ОПИСАНИЕ КОМПЛЕКСА (идёт до выбора номеров) -->
+  <section id="complex">
+    <div class="container two-col">
+      <div class="reveal">
+        <div class="sec-head" style="text-align:left;margin-bottom:20px">
+          <div class="eyebrow">О комплексе</div>
+          <h2>Дом, в который хочется возвращаться</h2>
+        </div>
+        <p>Закрытый, охраняемый и по-настоящему тихий комплекс спрятан в «золотом треугольнике» — в самом центре Сочи, но в экологически чистом месте. Здесь утро начинается не с шума улицы, а с шелеста деревьев собственного дендро-парка.</p>
+        <p>До моря и бесплатных пляжей — всего 5 минут пешком. Рядом — Дендрарий, летний и зимний театры, цирк, уютные кафе, рестораны, аптеки и супермаркеты. Вечерняя прогулка к набережной и кофе на собственном балконе — здесь это обычный день.</p>
+        <p>На территории есть кофейня, спортивная и детская площадки. Закрытая и охраняемая территория дарит спокойствие и безопасность в любое время года.</p>
+        <div class="facts">
+          <div class="fact"><b>5 мин</b><small>пешком до моря</small></div>
+          <div class="fact"><b>20–70 м²</b><small>площадь квартир</small></div>
+          <div class="fact"><b>от 2000 ₽</b><small>в сутки</small></div>
+        </div>
+      </div>
+      <div class="reveal" data-media="complex-video"></div>
+    </div>
+  </section>
+
+  <section class="bg-powder" style="padding:70px 0">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Почему у нас особенно</div>
+        <h2>Преимущества места</h2>
+        <div class="divider">♥</div>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><div class="ico">🤍</div><h3>Тишина и покой</h3><p>Закрытая территория без суеты: только птицы, деревья и ваш отдых.</p></div>
+        <div class="feature reveal"><div class="ico">🛡️</div><h3>Охраняемая территория</h3><p>Безопасно для пар, семей и отдыха с детьми круглый год.</p></div>
+        <div class="feature reveal"><div class="ico">🌳</div><h3>Свой дендро-парк</h3><p>Прогулки среди зелени прямо во дворе — а рядом знаменитый Дендрарий.</p></div>
+        <div class="feature reveal"><div class="ico">🌊</div><h3>Море в 5 минутах</h3><p>Бесплатные пляжи побережья в пешей доступности.</p></div>
+        <div class="feature reveal"><div class="ico">☕</div><h3>Кофейня во дворе</h3><p>Утренний кофе без дороги — и столько же уюта, сколько на вашем балконе.</p></div>
+        <div class="feature reveal"><div class="ico">🏛️</div><h3>Центр Сочи рядом</h3><p>Театры, цирк, рестораны, аптеки и супермаркеты — всё в шаговой доступности.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРЕВЬЮ НОМЕРОВ -->
+  <section>
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Выберите свой уголок</div>
+        <h2>Наши номера</h2>
+        <div class="divider">♥</div>
+      </div>
+      <div class="cards" id="home-cards"></div>
+      <div class="center" style="margin-top:40px"><button class="btn btn-wine" data-go="rooms">Все номера</button></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Готовы влюбиться в это место?</h2>
+        <p>Напишите нам, и мы поможем выбрать подходящую квартиру и пришлём подробные фото.</p>
+        <button class="btn btn-gold" data-go="contacts">Забронировать</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= НАШИ НОМЕРА ================= -->
+<div class="page" id="page-rooms">
+  <div class="page-title">
+    <h1>Наши номера</h1>
+    <p>Студии и двухкомнатные квартиры с большим балконом и видом на море или Дендрарий</p>
+  </div>
+  <section style="padding-top:50px">
+    <div class="container">
+      <div class="filters" id="filters">
+        <button class="chip active" data-filter="all">Все</button>
+        <button class="chip" data-filter="studio">Студии</button>
+        <button class="chip" data-filter="apart">Двухкомнатные</button>
+        <button class="chip" data-filter="sea">С видом на море</button>
+      </div>
+
+      <div class="room-detail" style="border-left-color:var(--wine);background:var(--powder)">
+        <h3 style="margin-bottom:10px">Во всех квартирах есть</h3>
+        <ul class="amen" id="common-amen"></ul>
+        <p style="color:var(--muted);font-size:.93rem">Заезд — с 15:00, выезд — до 12:00. Ранний заезд и поздний выезд возможны по договорённости.</p>
+      </div>
+
+      <div id="rooms-list"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ГАЛЕРЕЯ ================= -->
+<div class="page" id="page-gallery">
+  <div class="page-title">
+    <h1>Галерея</h1>
+    <p>Атмосфера, в которую хочется вернуться</p>
+  </div>
+  <section style="padding-top:40px">
+    <div class="container" id="gallery-content"></div>
+  </section>
+</div>
+
+<!-- ================= КОНТАКТЫ ================= -->
+<div class="page" id="page-contacts">
+  <div class="page-title">
+    <h1>Контакты</h1>
+    <p>Напишите нам — расскажем про каждый вариант и пришлём подробные фото</p>
+  </div>
+  <section style="padding-top:50px">
+    <div class="container">
+      <div class="contacts-grid">
+        <div class="contact-box reveal">
+          <h3>Бронирование</h3>
+          <p style="color:var(--muted)">Лилия, администратор</p>
+          <a class="phone" href="tel:+79186121366">8 918 612-13-66</a>
+          <div class="messengers">
+            <a class="m-max" href="https://max.ru/u/f9LHodD0cOJZKWnHFRmKIVMVi0-K8NYD9k8Txk1yiUpr14EYxNtu6EIDUHE" target="_blank" rel="noopener">MAX</a>
+            <a class="m-wa" href="https://wa.me/79186121366" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <ul class="info-list">
+            <li><span>♥</span><span>Заезд — в 15:00, выезд — в 12:00</span></li>
+            <li><span>♥</span><span>Ранний/поздний заезд и выезд — по договорённости</span></li>
+            <li><span>♥</span><span>Сочи, ул. Депутатская, 10д — «золотой треугольник», центр города</span></li>
+          </ul>
+        </div>
+        <div class="contact-box reveal">
+          <h3>Написать нам</h3>
+          <form id="contact-form" novalidate>
+            <label for="f-name">Ваше имя</label>
+            <input id="f-name" type="text" placeholder="Анна">
+            <div class="err" id="e-name"></div>
+            <label for="f-phone">Ваш номер телефона</label>
+            <input id="f-phone" type="tel" placeholder="89884185000">
+            <div class="err" id="e-phone"></div>
+            <label for="f-msg">Сообщение (даты, гости, пожелания)</label>
+            <textarea id="f-msg" placeholder="Хотим приехать 10–17 июня вдвоём..."></textarea>
+            <div class="err" id="e-msg"></div>
+            <button class="btn btn-gold" type="submit">Написать в WhatsApp</button>
+            <button class="btn btn-max" type="button" id="send-max">Написать в MAX</button>
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe loading="lazy" title="Яндекс Карты" src="https://yandex.ru/map-widget/v1/?text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%94%D0%B5%D0%BF%D1%83%D1%82%D0%B0%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2010%D0%B4&z=16&l=map"></iframe>
+        <div style="text-align:center;padding:14px;background:#fff"><b>Сочи, ул. Депутатская, 10д</b><br><a href="https://yandex.ru/maps/?text=%D0%A1%D0%BE%D1%87%D0%B8%2C%20%D0%94%D0%B5%D0%BF%D1%83%D1%82%D0%B0%D1%82%D1%81%D0%BA%D0%B0%D1%8F%2010%D0%B4" target="_blank" rel="noopener" style="color:var(--wine)">Открыть в Яндекс Картах →</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="f-logo">♥ Покровский <span>парк</span></div>
+  <p>Апартаменты в центре Сочи · 8 918 612-13-66</p>
+  <p style="opacity:.6;margin-top:8px">© <span id="year"></span> Апартаменты «Покровский парк»</p>
+</footer>
+
+<script>
+/* =====================================================================
+   НАСТРОЙКИ МЕДИА — ЗДЕСЬ ВСТАВЛЯЕТЕ СВОИ ФОТО И ВИДЕО
+   Пока поле пустое ("" или []), на сайте показывается заглушка с рамкой.
+   Как только вписали путь к файлу (например "images/room-1/1.jpg"
+   или "videos/room-1.mp4"), заглушка автоматически заменится на ваш файл.
+   ===================================================================== */
+const HERO_IMAGE = "images/hero.jpg";                     // фон главного баннера, например "images/hero.jpg"
+const COMPLEX_VIDEO = "videos/complex.mp4";                  // видео комплекса, например "videos/complex.mp4"
+const COMPLEX_PHOTOS = ["images/complex/1.jpg" , "images/complex/2.jpg" , "images/complex/3.jpg" , "images/complex/4.jpg", "images/complex/5.jpg" , "images/complex/6.jpg", "images/complex/7.jpg", "images/complex/8.jpg" ];                 // фото комплекса для галереи: ["images/complex/1.jpg", ...]
+const COMPLEX_VIDEOS = ["videos/complex.mp4"];                 // видео комплекса для галереи (одно): ["videos/complex-1.mp4"]
+
+/* ----- Общие удобства (во всех квартирах) ----- */
+const COMMON_AMENITIES = [
+  "Wi-Fi","Оборудованная кухня","Посуда и столовые приборы","Микроволновка",
+  "Стиральная машина","Гладильная доска и утюг","Фен","Кондиционер",
+  "Постельное бельё и полотенца","Большой просторный балкон"
+];
+
+/* ----- Номера. В media: video — путь к видео, photos — массив путей к фото ----- */
+const ROOMS = [
+  { id:"studio-2", type:"studio", title:"Студия на 2 этаже", floor:2, area:20, guests:3, view:"Дендрарий", sea:false,
+    beds:"Большая кровать с ортопедическим матрасом и раскладное кресло-кровать",
+    desc:"Уютная студия с большим балконом и видом на зелёный Дендрарий.",
+    note:"", media:{video:"videos/studio-2.mp4", photos:["images/studio-2/1.jpg","images/studio-2/2.jpg","images/studio-2/3.jpg","images/studio-2/4.jpg","images/studio-2/5.jpg","images/studio-2/6.jpg","images/studio-2/7.jpg","images/studio-2/8.jpg","images/studio-2/9.jpg","images/studio-2/10.jpg"]} },
+  { id:"studio-4", type:"studio", title:"Студия на 4 этаже", floor:4, area:20, guests:2, view:"Дендрарий", sea:false,
+    beds:"Большая кровать с ортопедическим матрасом",
+    desc:"Студия с просторным балконом и видом на Дендрарий.",
+    note:"", media:{video:"videos/studio-4.mp4", photos:[
+  "images/studio-4/1.jpg","images/studio-4/2.jpg","images/studio-4/3.jpg","images/studio-4/4.jpg","images/studio-4/5.jpg",
+  "images/studio-4/6.jpg","images/studio-4/7.jpg","images/studio-4/8.jpg","images/studio-4/9.jpg","images/studio-4/10.jpg"]} },
+  { id:"studio-5-1", type:"studio", title:"Студия № 1 на 5 этаже", floor:5, area:20, guests:2, view:"Море и Дендрарий", sea:true,
+    beds:"Большая кровать с ортопедическим матрасом",
+    desc:"Студия на верхнем этаже: с балкона видно и море, и Дендрарий.",
+    note:"", media:{video:"videos/studio-5-1.mp4", photos:[
+  "images/studio-5-1/1.jpg","images/studio-5-1/2.jpg","images/studio-5-1/3.jpg","images/studio-5-1/4.jpg","images/studio-5-1/5.jpg",
+  "images/studio-5-1/6.jpg","images/studio-5-1/7.jpg","images/studio-5-1/8.jpg","images/studio-5-1/9.jpg","images/studio-5-1/10.jpg"]} },
+  { id:"studio-5-2", type:"studio", title:"Студия № 2 на 5 этаже", floor:5, area:20, guests:3, view:"Море и парк", sea:true,
+    beds:"Большая кровать с ортопедическим матрасом и раскладное кресло-кровать",
+    desc:"Светлая студия на 5 этаже с видом на море и парк и большим балконом.",
+    note:"", media:{video:"videos/studio-5-2.mp4", photos:[
+  "images/studio-5-2/1.jpg","images/studio-5-2/2.jpg","images/studio-5-2/3.jpg","images/studio-5-2/4.jpg","images/studio-5-2/5.jpg",
+  "images/studio-5-2/6.jpg","images/studio-5-2/7.jpg","images/studio-5-2/8.jpg","images/studio-5-2/9.jpg","images/studio-5-2/10.jpg"]} },
+  { id:"studio-5-3", type:"studio", title:"Студия № 3 на 5 этаже", floor:5, area:20, guests:3, view:"Море и парк", sea:true,
+    beds:"Большая кровать с ортопедическим матрасом и раскладное кресло-кровать",
+    desc:"Студия на 5 этаже с видом на море и парк и большим балконом.",
+    note:"", media:{video:"videos/studio-5-3.mp4", photos:[
+  "images/studio-5-3/1.jpg","images/studio-5-3/2.jpg","images/studio-5-3/3.jpg","images/studio-5-3/4.jpg","images/studio-5-3/5.jpg",
+  "images/studio-5-3/6.jpg","images/studio-5-3/7.jpg","images/studio-5-3/8.jpg","images/studio-5-3/9.jpg","images/studio-5-3/10.jpg"]} },
+
+  { id:"apart-3", type:"apart", title:"Двухкомнатная квартира на 3 этаже", floor:3, area:35, guests:4, view:"Тихий двор", sea:false, balconies:"Два балкона",
+    beds:"Большая кровать с ортопедическим матрасом и раскладной диван",
+    desc:"Две комнаты и два балкона с видом на тихий двор.",
+    note:"", media:{video:"videos/apart-3.mp4", photos:[
+  "images/apart-3/1.jpg","images/apart-3/2.jpg","images/apart-3/3.jpg","images/apart-3/4.jpg","images/apart-3/5.jpg",
+  "images/apart-3/6.jpg","images/apart-3/7.jpg","images/apart-3/8.jpg","images/apart-3/9.jpg","images/apart-3/10.jpg"]} },
+
+  { id:"apart-9", type:"apart", title:"Двухкомнатная квартира на 9 этаже", floor:9, area:45, guests:4, view:"Дендрарий и море (панорама)", sea:true,
+    beds:"Большая кровать с ортопедическим матрасом и раскладной диван",
+    desc:"Панорамный вид на Дендрарий и море с большого балкона — закаты здесь особенные.",
+    note:"", media:{video:"videos/apart-9.mp4", photos:[
+  "images/apart-9/1.jpg","images/apart-9/2.jpg","images/apart-9/3.jpg","images/apart-9/4.jpg","images/apart-9/5.jpg",
+  "images/apart-9/6.jpg","images/apart-9/7.jpg","images/apart-9/8.jpg","images/apart-9/9.jpg","images/apart-9/10.jpg"]} },
+
+  { id:"apart-8", type:"apart", title:"Двухкомнатная квартира 70 м² на 8 этаже", floor:8, area:70, guests:5, view:"Море (панорама)", sea:true,
+    address:"Курортный проспект, 75 к1",
+    beds:"Большая двуспальная кровать, раскладной диван и кресло-кровать",
+    desc:"Самые просторные апартаменты: 70 м², панорамный вид на море и большой балкон.",
+    note:"", media:{video:"videos/apart-8.mp4", photos:["images/apart-8/1.jpg","images/apart-8/2.jpg","images/apart-8/3.jpg","images/apart-8/4.jpg","images/apart-8/5.jpg","images/apart-8/6.jpg","images/apart-8/7.jpg","images/apart-8/8.jpg","images/apart-8/9.jpg","images/apart-8/10.jpg"]} }
+
+];
+
+/* ====================== ДАЛЬШЕ — ЛОГИКА (менять не нужно) ====================== */
+const CAM = '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>';
+const VID = '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg>';
+
+const isVideo = p => /\.(mp4|webm|mov)(\?|$)/i.test(p) || /youtube\.com|youtu\.be|vimeo\.com/i.test(p);
+
+/* Возвращает HTML медиа-блока: ваш файл или красивую заглушку */
+function media(src, label, opts = {}) {
+  const {cls = "", kind = "photo", hint = ""} = opts;
+  if (src) {
+    if (/youtube\.com\/watch\?v=|youtu\.be\//.test(src)) {
+      const id = src.split(/v=|youtu\.be\//)[1].split(/[&?]/)[0];
+      return `<iframe class="media-filled ${cls}" src="https://www.youtube.com/embed/${id}" allowfullscreen style="border:0;aspect-ratio:16/9;height:auto"></iframe>`;
+    }
+    if (isVideo(src)) return `<video class="media-filled ${cls}" src="${src}" controls preload="metadata" playsinline></video>`;
+    return `<img class="media-filled ${cls}" src="${src}" alt="${label}" loading="lazy">`;
+  }
+  return `<div class="ph ${kind === "video" ? "video" : ""} ${cls}">${kind === "video" ? VID : CAM}<strong>${label}</strong><small>${hint || "Сюда встанет ваш оригинальный файл без сжатия"}</small></div>`;
+}
+
+const priceText = r => r.type === "studio" ? "от 2000 ₽ / сутки" : "от 2500 ₽ / сутки";
+const plural = n => n + (n === 1 ? " гость" : (n < 5 ? " гостя" : " гостей"));
+
+/* ----- Карточки на главной ----- */
+function renderHomeCards() {
+  document.getElementById("home-cards").innerHTML = ROOMS.map(r => `
+    <article class="card reveal" data-room="${r.id}">
+      ${media(r.media.photos[0], "Главное фото: " + r.title, {hint:"Сюда встанет главное фото номера"})}
+      <div class="card-body">
+        <h3>${r.title}</h3>
+        <div class="tags"><span class="tag">${r.area} м²</span><span class="tag">до ${plural(r.guests)}</span><span class="tag">${r.view}</span></div>
+        ${r.address ? `<div class="card-addr">📍 ${r.address}</div>` : ""}
+        <div class="price">${priceText(r)}</div>
+        <button class="btn btn-outline" data-room="${r.id}">Подробнее</button>
+      </div>
+    </article>`).join("");
+}
+
+/* ----- Карусель: фото 5–10 номера (листаются вправо-влево) ----- */
+function carousel(p) {
+  const slides = Array.from({length:6}, (_, i) => `<div class="slide">${media(p[4 + i], "Дополнительное фото " + (i + 5), {hint:"Сюда встанет фото " + (i + 5) + " из 10"})}</div>`).join("");
+  return `<h4 style="margin:24px 0 12px">Ещё фото — листайте ‹ ›</h4>
+  <div class="carousel"><button class="car-btn prev" type="button" aria-label="Назад">‹</button><div class="track">${slides}</div><button class="car-btn next" type="button" aria-label="Вперёд">›</button></div>`;
+}
+
+/* ----- Детальные блоки номеров ----- */
+function renderRooms() {
+  document.getElementById("common-amen").innerHTML = COMMON_AMENITIES.map(a => `<li>${a}</li>`).join("");
+  document.getElementById("rooms-list").innerHTML = ROOMS.map(r => {
+    const p = r.media.photos;
+    return `
+    <article class="room-detail" id="room-${r.id}" data-type="${r.type}" data-sea="${r.sea}">
+      <div class="room-top">
+        <div>
+          <h2>${r.title}</h2>
+          <div class="sub">${r.type === "studio" ? "Студия" : "Двухкомнатная квартира"} · ${r.area} м² · ${r.floor} этаж${r.address ? " · " + r.address : ""}</div>
+        </div>
+        <div class="room-price"><b>${priceText(r)}</b><small>точную цену на ваши даты уточняйте</small></div>
+      </div>
+      <p>${r.desc}</p>
+      <div class="room-grid">
+        <div>
+          <div class="specs">
+            <div class="spec"><small>Площадь</small><b>${r.area} м²</b></div>
+            <div class="spec"><small>Вместимость</small><b>до ${plural(r.guests)}</b></div>
+            <div class="spec"><small>Этаж</small><b>${r.floor}</b></div>
+            <div class="spec"><small>Вид</small><b>${r.view}</b></div>
+            <div class="spec" style="grid-column:span 2"><small>Спальные места</small><b>${r.beds}</b></div>
+            <div class="spec" style="grid-column:span 2"><small>Балкон</small><b>${r.balconies || "Большой просторный балкон"}</b></div>
+          </div>
+          <h4 style="margin-top:6px">Удобства</h4>
+          <ul class="amen">${COMMON_AMENITIES.slice(0,8).map(a => `<li>${a}</li>`).join("")}<li>Постельное бельё и полотенца</li><li>${r.balconies || "Просторный балкон"}</li></ul>
+          <button class="btn btn-gold" data-go="contacts">Забронировать</button>
+        </div>
+        <div class="media-zone">
+          <h4>Фото и видео номера</h4>
+          <div class="media-grid">
+            <div class="span2">${media(r.media.video, "Сюда встанет видео-тур по номеру в высоком качестве", {kind:"video", cls:"span2"})}</div>
+            ${media(p[0], "Фото спальной зоны")}
+            ${media(p[1], "Фото балкона и вида")}
+            ${media(p[2], "Фото кухни")}
+            ${media(p[3], "Фото санузла и деталей")}
+          </div>
+          ${carousel(p)}
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+/* ----- Галерея ----- */
+function renderGallery() {
+  const photos = Array.from({length:8}, (_, i) => COMPLEX_PHOTOS[i]);
+  const labels = ["Двор и дендро-парк","Вход на территорию","Кофейня","Вид с балкона на море","Спортивная площадка","Вечерняя территория","Утро в комплексе","Детали интерьера"];
+  const vids = [COMPLEX_VIDEOS[0]];
+  document.getElementById("gallery-content").innerHTML = `
+    <h3 class="gal-title">Комплекс и территория</h3>
+    <div class="gal-grid">${photos.map((s,i) => media(s, "Фото: " + labels[i], {cls: i === 0 ? "wide" : ""})).join("")}</div>
+    <h3 class="gal-title">Видео</h3>
+    <div class="gal-grid">${vids.map(s => media(s, "Видео-обзор территории", {kind:"video", cls:"wide"})).join("")}</div>`;
+}
+
+/* ----- Видео комплекса на главной ----- */
+function renderComplexMedia() {
+  document.querySelector('[data-media="complex-video"]').innerHTML =
+    media(COMPLEX_VIDEO, "Главное презентационное видео комплекса", {kind:"video", cls:"big", hint:"Сюда встанет обзорное видео или фотогалерея комплекса в высоком качестве"});
+}
+
+/* ----- Навигация между вкладками (SPA) ----- */
+const pages = ["home","rooms","gallery","contacts"];
+function go(name, afterShow) {
+  if (!pages.includes(name)) name = "home";
+  pages.forEach(p => document.getElementById("page-" + p).classList.toggle("active", p === name));
+  document.querySelectorAll(".menu button[data-go]").forEach(b => b.classList.toggle("active", b.dataset.go === name && !b.classList.contains("nav-cta")));
+  document.getElementById("menu").classList.remove("open");
+  document.getElementById("burger").classList.remove("open");
+  pauseAllVideos();
+  window.scrollTo({top:0, behavior:"smooth"});
+  history.replaceState(null, "", "#" + name);
+  setTimeout(observe, 50);
+  if (afterShow) afterShow();
+}
+
+function openRoom(id) {
+  go("rooms", () => {
+    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.filter === "all"));
+    document.querySelectorAll(".room-detail[data-type]").forEach(el => el.style.display = "");
+    setTimeout(() => {
+      const el = document.getElementById("room-" + id);
+      if (el) {
+        el.scrollIntoView({behavior:"smooth", block:"start"});
+        el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+      }
+    }, 350);
+  });
+}
+
+document.addEventListener("click", e => {
+  const room = e.target.closest("[data-room]");
+  if (room) { openRoom(room.dataset.room); return; }
+  const g = e.target.closest("[data-go]");
+  if (g) { e.preventDefault(); go(g.dataset.go); return; }
+  const s = e.target.closest("[data-scroll]");
+  if (s) document.getElementById(s.dataset.scroll).scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById("burger").addEventListener("click", function () {
+  this.classList.toggle("open");
+  document.getElementById("menu").classList.toggle("open");
+});
+
+/* ----- Стрелки карусели ----- */
+document.addEventListener("click", e => {
+  const b = e.target.closest(".car-btn"); if (!b) return;
+  const t = b.parentElement.querySelector(".track");
+  t.scrollBy({left:(b.classList.contains("next") ? 1 : -1) * t.clientWidth * .85, behavior:"smooth"});
+});
+
+/* ----- Фильтры ----- */
+document.getElementById("filters").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  document.querySelectorAll(".chip").forEach(x => x.classList.toggle("active", x === c));
+  const f = c.dataset.filter;
+  document.querySelectorAll(".room-detail[data-type]").forEach(el => {
+    const show = f === "all" || el.dataset.type === f || (f === "sea" && el.dataset.sea === "true");
+    el.style.display = show ? "" : "none";
+  });
+});
+
+/* ----- Плавное появление при скролле ----- */
+let io;
+function observe() {
+  if (!("IntersectionObserver" in window)) { document.querySelectorAll(".reveal").forEach(el => el.classList.add("in")); return; }
+  io = io || new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold:.12});
+  document.querySelectorAll(".page.active .reveal:not(.in)").forEach(el => io.observe(el));
+}
+
+/* ----- Форма ----- */
+const MAX_LINK = "https://max.ru/u/f9LHodD0cOJZKWnHFRmKIVMVi0-K8NYD9k8Txk1yiUpr14EYxNtu6EIDUHE";
+
+/* Проверяет форму и возвращает готовый текст сообщения (или null) */
+function buildMessage() {
+  const name = document.getElementById("f-name").value.trim();
+  const phone = document.getElementById("f-phone").value.trim();
+  const msg = document.getElementById("f-msg").value.trim();
+  const set = (id, t) => document.getElementById(id).textContent = t;
+  set("e-name", name.length < 2 ? "Пожалуйста, введите имя" : "");
+  set("e-phone", phone.length < 5 ? "Укажите номер телефона" : "");
+  set("e-msg", msg.length < 5 ? "Напишите пару слов о поездке" : "");
+  if (name.length < 2 || phone.length < 5 || msg.length < 5) return null;
+  return `Здравствуйте! Меня зовут ${name}.\nМой номер телефона: ${phone}.\nСообщение гостя: ${msg}`;
+}
+
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).catch(() => {}); return; }
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch (_) {}
+  document.body.removeChild(ta);
+}
+
+document.getElementById("contact-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const text = buildMessage(); if (!text) return;
+  document.getElementById("form-status").textContent = "";
+  window.open("https://wa.me/79186121366?text=" + encodeURIComponent(text), "_blank");
+});
+
+/* MAX не умеет подставлять текст по ссылке: копируем сообщение и открываем чат */
+document.getElementById("send-max").addEventListener("click", () => {
+  const text = buildMessage(); if (!text) return;
+  window.open(MAX_LINK, "_blank");
+  copyText(text);
+  document.getElementById("form-status").textContent = "Текст сообщения скопирован — вставьте его в чат MAX (долгое нажатие → «Вставить»).";
+});
+
+/* ----- Управление видео и звуком ----- */
+function pauseAllVideos(except) {
+  document.querySelectorAll("video").forEach(v => { if (v !== except && !v.paused) v.pause(); });
+}
+
+/* Когда включается одно видео — все остальные ставятся на паузу (звук не накладывается) */
+document.addEventListener("play", e => {
+  if (e.target.tagName === "VIDEO") pauseAllVideos(e.target);
+}, true);
+
+/* Видео выходит из зоны видимости (листание вниз/вверх) — пауза, звук прекращается */
+const videoObserver = "IntersectionObserver" in window
+  ? new IntersectionObserver(entries => entries.forEach(en => {
+      if (!en.isIntersecting && !en.target.paused) en.target.pause();
+    }), {threshold: 0.25})
+  : null;
+function watchVideos() {
+  if (!videoObserver) return;
+  document.querySelectorAll("video").forEach(v => videoObserver.observe(v));
+}
+
+/* Пауза, если вкладка браузера скрыта или приложение свернуто */
+document.addEventListener("visibilitychange", () => { if (document.hidden) pauseAllVideos(); });
+
+/* ----- Старт ----- */
+if (HERO_IMAGE) document.getElementById("hero").style.backgroundImage = `url("${HERO_IMAGE}")`;
+// затемнение (overlay) поверх фото уже встроено в .hero::before
+document.getElementById("year").textContent = new Date().getFullYear();
+renderHomeCards(); renderRooms(); renderGallery(); renderComplexMedia();
+watchVideos();
+const start = location.hash.replace("#", "");
+go(pages.includes(start) ? start : "home");
+window.scrollTo(0, 0);
+</script>
+</body>
+</html>
